@@ -14,11 +14,11 @@ export class HomeComponent {
   constructor(private router: Router) {}
 
   goLogin() {
-    this.router.navigate([{ outlets: { login: ['login'] } }]);
+    this.router.navigate([{ outlets: { login: ['modal-login'] } }]);
   }
 
   goRegister() {
-    this.router.navigate([{ outlets: { register: ['register'] } }]);
+    this.router.navigate([{ outlets: { register: ['modal-register'] } }]);
   }
 }
 

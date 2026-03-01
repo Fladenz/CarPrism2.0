@@ -15,11 +15,11 @@ export class RegisterComponent {
 
   onSubmit() {
     alert('Cadastro realizado!');
-    this.router.navigate([{ outlets: { register: null } }]);
+    this.router.navigate(['/inicio']);
   }
 
   close() {
-    this.router.navigate([{ outlets: { register: null } }]);
+    this.router.navigate(['/']);
   }
 
   openLogin() {

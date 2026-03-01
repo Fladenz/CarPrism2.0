@@ -15,11 +15,11 @@ export class LoginComponent {
 
   onSubmit() {
     alert('Login efetuado com sucesso!');
-    this.router.navigate(['/']);
+    this.router.navigate([{ outlets: { login: null } }]).then(() => this.router.navigate(['/']));
   }
 
   close() {
-    this.router.navigate(['/']);
+    this.router.navigate([{ outlets: { login: null } }]);
   }
 
   onOverlayClick(e: Event) {

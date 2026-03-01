@@ -1,0 +1,100 @@
+<div class="dashboard-container">
+
+    <!-- SIDEBAR (Mesma do Dashboard para consistência) -->
+    <aside class="sidebar d-none d-lg-flex">
+        <a routerLink="/" class="brand-logo">CarPrism</a>
+        <nav class="nav flex-column w-100">
+            <a routerLink="/" class="nav-link"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+            <a routerLink="/garagem" class="nav-link active"><i class="bi bi-car-front-fill"></i><span>Garagem</span></a>
+            <a routerLink="/" class="nav-link"><i class="bi bi-heart-fill"></i><span>Favoritos</span></a>
+            <a routerLink="/" class="nav-link"><i class="bi bi-calendar-event"></i><span>Test-Drives</span></a>
+            <a routerLink="/" class="nav-link"><i class="bi bi-gear-fill"></i><span>Ajustes</span></a>
+        </nav>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <a role="button" (click)="goBack()" class="btn-back"><i class="bi bi-arrow-left"></i> Voltar</a>
+
+        <!-- Header do Veículo -->
+        <div class="car-header">
+            <div class="car-title">
+                <div class="car-subtitle">CHEVROLET</div>
+                <h1>Corvette Stingray</h1>
+            </div>
+            <div class="price-tag">
+                <div class="price-label">Preço Estimado</div>
+                <div class="price-value">R$ 1.250.000</div>
+            </div>
+        </div>
+
+        <!-- Imagem Gigante -->
+        <div class="hero-image-box">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2000&auto=format&fit=crop" alt="Chevrolet Corvette">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="info-grid">
+
+            <!-- Coluna Esquerda: Specs e Texto -->
+            <div class="details-left">
+
+                <!-- Cards de Especificações -->
+                <div class="specs-row">
+                    <div class="spec-card">
+                        <i class="bi bi-speedometer spec-icon"></i>
+                        <span class="spec-value">2.9s</span>
+                        <span class="spec-label">0-100 km/h</span>
+                    </div>
+                    <div class="spec-card">
+                        <i class="bi bi-lightning-charge-fill spec-icon"></i>
+                        <span class="spec-value">495 cv</span>
+                        <span class="spec-label">Potência</span>
+                    </div>
+                    <div class="spec-card">
+                        <i class="bi bi-gear-wide-connected spec-icon"></i>
+                        <span class="spec-value">V8 6.2L</span>
+                        <span class="spec-label">Motor</span>
+                    </div>
+                </div>
+
+                <div class="description-box">
+                    <h3>Sobre a Máquina</h3>
+                    <p>
+                        O Chevrolet Corvette Stingray redefine o conceito de performance americana. Com seu motor central V8 naturalmente aspirado, ele entrega uma experiência de direção visceral e precisa. O design aerodinâmico não é apenas estético; cada linha foi esculpida para cortar o vento e manter o carro colado ao chão em altas velocidades.
+                    </p>
+                    <p>
+                        No interior, o cockpit envolve o motorista como um jato de combate, com acabamentos em fibra de carbono e couro premium. Tecnologia de ponta e conforto se unem para criar o grand tourer definitivo.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Coluna Direita: Ação -->
+            <div class="details-right">
+                <div class="action-card">
+                    <div class="action-title">Interessado?</div>
+                    <p class="text-muted small mb-4">Agende um test-drive exclusivo ou fale com um de nossos especialistas para personalizar o seu.</p>
+
+                    <button class="btn-action btn-schedule">Agendar Test-Drive</button>
+                    <button class="btn-action btn-contact">Falar no WhatsApp</button>
+
+                    <hr class="border-secondary my-4">
+
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-shield-check text-success fs-4"></i>
+                        <div>
+                            <div class="fw-bold text-white">Garantia CarPrism</div>
+                            <div class="small text-muted">Veículo verificado e certificado.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

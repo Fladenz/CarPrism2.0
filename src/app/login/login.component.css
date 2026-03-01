@@ -1,0 +1,50 @@
+:root {
+    --bg-color: #050505;
+    --accent-color: #9d4edd;
+    --text-color: #ffffff;
+    --text-muted: #b3b3b3;
+}
+
+.login-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.login-overlay.active { opacity: 1; pointer-events: all; }
+
+.login-box {
+    background: rgba(15,15,15,0.85);
+    border: 2px solid var(--accent-color);
+    border-radius: 40px;
+    padding: 40px 30px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(157,78,221,0.25);
+    transform: scale(1);
+    position: relative;
+    backdrop-filter: blur(15px);
+}
+
+.btn-close-custom { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #666; font-size: 1.5rem; cursor: pointer; }
+.btn-close-custom:hover { color: #fff; }
+
+.login-icon-box { width:80px; height:80px; background: rgba(157,78,221,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px auto; border:1px solid var(--accent-color); box-shadow:0 0 15px rgba(157,78,221,0.3); }
+.login-title { color:#fff; font-weight:800; margin-bottom:5px; font-size:1.5rem; letter-spacing:1px; text-transform:uppercase; }
+.login-subtitle { color:#888; font-size:0.8rem; margin-bottom:25px; }
+.login-input { background: rgba(255,255,255,0.05); border:1px solid #333; border-radius:20px; color:#fff; margin-bottom:12px; padding:12px 20px; width:100%; text-align:center; font-size:0.9rem; }
+.login-input::placeholder { color:#666; }
+.login-input:focus { background: rgba(255,255,255,0.1); outline:none; border-color:var(--accent-color); box-shadow:0 0 15px rgba(157,78,221,0.3); }
+.btn-login-submit { background: var(--accent-color); color:#fff; border:none; border-radius:20px; padding:12px; width:100%; font-weight:bold; font-size:0.9rem; margin-top:10px; text-transform:uppercase; }
+.btn-login-submit:hover { background:#b163ee; box-shadow:0 0 25px rgba(157,78,221,0.6); transform: translateY(-2px); }
+.forgot-pass { display:block; margin-top:15px; font-size:0.75rem; color:#666; text-decoration:none; }
+.forgot-pass:hover { color:var(--accent-color); }

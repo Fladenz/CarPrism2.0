@@ -1,0 +1,23 @@
+<div id="login-modal" class="login-overlay active" (click)="onOverlayClick($event)">
+
+  <div class="login-box">
+    <button class="btn-close-custom" (click)="close()">&times;</button>
+
+    <div class="login-icon-box">
+      <i class="bi bi-person-fill" style="font-size: 2.5rem; color: var(--accent-color);"></i>
+    </div>
+
+    <h3 class="login-title">Bem-vindo</h3>
+    <p class="login-subtitle">Acesse sua conta CarPrism</p>
+
+    <form (ngSubmit)="onSubmit()">
+      <input type="email" class="login-input" placeholder="seu@email.com" required>
+      <input type="password" class="login-input" placeholder="Sua senha" required>
+
+      <button type="submit" class="btn-login-submit">ACESSAR</button>
+    </form>
+
+    <a href="#" class="forgot-pass">Esqueceu a senha?</a>
+  </div>
+
+</div>

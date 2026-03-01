@@ -1,0 +1,85 @@
+<div class="register-overlay active" (click)="close()">
+
+  <div class="register-box" (click)="$event.stopPropagation()">
+    <button class="btn-close-custom" (click)="close()">&times;</button>
+
+    <div class="container-fluid g-0">
+        <div class="row g-0 split-container">
+
+            <!-- LADO ESQUERDO (Imagem & Branding) -->
+            <div class="col-lg-6 left-pane">
+                <div class="left-content">
+                    <h1 class="left-title">
+                        O Poder do <br>
+                        <span class="highlight-text">Luxo</span> em suas mãos.
+                    </h1>
+                    <p class="left-desc">
+                        Junte-se ao CarPrism e tenha acesso a test-drives exclusivos e lançamentos antes de todo mundo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- LADO DIREITO (Formulário) -->
+            <div class="col-lg-6 right-pane">
+                <div class="glow-effect"></div>
+
+                <div class="d-flex flex-column h-100 justify-content-center" style="max-width: 450px; margin: 0 auto; width: 100%;">
+
+                    <a class="brand-logo">CARPRISM</a>
+
+                    <div class="form-header">
+                        <h2 class="form-title">Criar Conta</h2>
+                        <p class="form-subtitle">Preencha seus dados para começar.</p>
+                    </div>
+
+                    <form (ngSubmit)="onSubmit()">
+
+                        <div class="mb-3">
+                            <label class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" placeholder="Seu nome" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">E-mail</label>
+                            <input type="email" class="form-control" placeholder="seu@email.com" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Senha</label>
+                            <input type="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-custom">
+                            CADASTRAR
+                        </button>
+
+                        <div class="divider">
+                            <span>OU CONTINUE COM</span>
+                        </div>
+
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <a href="#" class="social-btn">
+                                    <i class="bi bi-google"></i> Google
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="social-btn">
+                                    <i class="bi bi-apple"></i> Apple
+                                </a>
+                            </div>
+                        </div>
+
+                        <p class="text-center mt-4 text-muted" style="font-size: 0.9rem;">
+                            Já tem uma conta? <a href="#" (click)="openLogin()" style="color: var(--accent-color); text-decoration: none; font-weight: 600;">Faça Login</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+  </div>
+
+</div>

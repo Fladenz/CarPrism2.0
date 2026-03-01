@@ -16,5 +16,9 @@ export class HomeComponent {
   goLogin() {
     this.router.navigate([{ outlets: { login: ['login'] } }]);
   }
+
+  goRegister() {
+    this.router.navigate([{ outlets: { register: ['register'] } }]);
+  }
 }
 

@@ -10,7 +10,7 @@
     <h3 class="login-title">Bem-vindo</h3>
     <p class="login-subtitle">Acesse sua conta CarPrism</p>
 
-    <form (ngSubmit)="onSubmit()">
+    <form (submit)="onSubmit($event)">
       <input type="email" class="login-input" placeholder="seu@email.com" required>
       <input type="password" class="login-input" placeholder="Sua senha" required>
 

@@ -13,9 +13,10 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private router: Router) {}
 
-  onSubmit() {
+  onSubmit(event: Event) {
+    event.preventDefault();
     alert('Login efetuado com sucesso!');
-    this.router.navigate(['/inicio']);
+    this.router.navigateByUrl('/inicio');
   }
 
   close() {

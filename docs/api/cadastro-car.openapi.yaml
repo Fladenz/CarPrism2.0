@@ -1,0 +1,296 @@
+openapi: 3.0.3
+info:
+  title: CarPrism Cars API
+  version: 1.0.0
+  description: Contrato da API para cadastro de veiculos da tela "Novo Carro".
+
+servers:
+  - url: https://api.carprism.com
+    description: Producao
+  - url: http://localhost:3000
+    description: Desenvolvimento local
+
+tags:
+  - name: Cars
+    description: Operacoes de veiculos
+
+paths:
+  /api/v1/cars:
+    get:
+      tags: [Cars]
+      summary: Listar todos os veiculos
+      operationId: listarCarros
+      responses:
+        '200':
+          description: Lista de veiculos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Carro'
+    post:
+      tags: [Cars]
+      summary: Cadastrar novo veiculo
+      operationId: cadastrarCarro
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarCarroRequest'
+      responses:
+        '201':
+          description: Veiculo cadastrado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Carro'
+        '400':
+          description: Dados invalidos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespostaErro'
+
+  /api/v1/cars/{id}:
+    get:
+      tags: [Cars]
+      summary: Buscar detalhes de um veiculo
+      operationId: buscarCarroPorId
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Veiculo encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Carro'
+        '404':
+          description: Veiculo nao encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespostaErro'
+    put:
+      tags: [Cars]
+      summary: Editar veiculo por id
+      operationId: editarCarroPorId
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AtualizarCarroRequest'
+      responses:
+        '200':
+          description: Veiculo atualizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Carro'
+        '400':
+          description: Dados invalidos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespostaErro'
+        '404':
+          description: Veiculo nao encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespostaErro'
+    delete:
+      tags: [Cars]
+      summary: Deletar veiculo por id
+      operationId: deletarCarroPorId
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Veiculo deletado com sucesso
+        '404':
+          description: Veiculo nao encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RespostaErro'
+
+components:
+  schemas:
+    CriarCarroRequest:
+      type: object
+      required:
+        - marca
+        - modelo
+        - precoEstimado
+        - zeroACem
+        - potenciaCv
+        - motorizacao
+        - descricao
+      properties:
+        marca:
+          type: string
+          minLength: 2
+          maxLength: 50
+          example: Chevrolet
+        modelo:
+          type: string
+          minLength: 2
+          maxLength: 80
+          example: Corvette Stingray
+        precoEstimado:
+          type: number
+          format: double
+          minimum: 0
+          example: 1250000
+          description: Valor numerico em BRL, sem separador de milhar
+        zeroACem:
+          type: number
+          format: float
+          minimum: 0
+          example: 2.9
+          description: Tempo de 0 a 100 km/h em segundos
+        potenciaCv:
+          type: integer
+          minimum: 1
+          example: 495
+        motorizacao:
+          type: string
+          minLength: 2
+          maxLength: 60
+          example: V8 6.2L
+        descricao:
+          type: string
+          minLength: 20
+          maxLength: 2000
+          example: O Corvette entrega experiencia de conducao visceral com alto nivel de tecnologia.
+
+    AtualizarCarroRequest:
+      type: object
+      required:
+        - marca
+        - modelo
+        - precoEstimado
+        - zeroACem
+        - potenciaCv
+        - motorizacao
+        - descricao
+      properties:
+        marca:
+          type: string
+          minLength: 2
+          maxLength: 50
+          example: Chevrolet
+        modelo:
+          type: string
+          minLength: 2
+          maxLength: 80
+          example: Corvette Stingray
+        precoEstimado:
+          type: number
+          format: double
+          minimum: 0
+          example: 1290000
+          description: Valor numerico em BRL, sem separador de milhar
+        zeroACem:
+          type: number
+          format: float
+          minimum: 0
+          example: 2.8
+          description: Tempo de 0 a 100 km/h em segundos
+        potenciaCv:
+          type: integer
+          minimum: 1
+          example: 500
+        motorizacao:
+          type: string
+          minLength: 2
+          maxLength: 60
+          example: V8 6.2L
+        descricao:
+          type: string
+          minLength: 20
+          maxLength: 2000
+          example: Versao atualizada com novos ajustes de desempenho.
+
+    Carro:
+      type: object
+      required:
+        - id
+        - marca
+        - modelo
+        - precoEstimado
+        - zeroACem
+        - potenciaCv
+        - motorizacao
+        - descricao
+        - urlImagem
+        - criadoEm
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 101
+        marca:
+          type: string
+          example: Chevrolet
+        modelo:
+          type: string
+          example: Corvette Stingray
+        precoEstimado:
+          type: number
+          format: double
+          example: 1250000
+        zeroACem:
+          type: number
+          format: float
+          example: 2.9
+        potenciaCv:
+          type: integer
+          example: 495
+        motorizacao:
+          type: string
+          example: V8 6.2L
+        descricao:
+          type: string
+        urlImagem:
+          type: string
+          format: uri
+          example: https://cdn.carprism.com/cars/101.jpg
+        criadoEm:
+          type: string
+          format: date-time
+          example: '2026-03-02T10:30:00Z'
+
+    RespostaErro:
+      type: object
+      required:
+        - codigo
+        - mensagem
+      properties:
+        codigo:
+          type: string
+          example: VALIDATION_ERROR
+        mensagem:
+          type: string
+          example: Campo "marca" e obrigatorio.

@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { GaragemComponent } from './garagem/garagem.component';
+import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
+import { CadastroCarComponent } from './cadastroCar/cadastro-car.component';
 
 export const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -14,5 +16,7 @@ export const routes: Routes = [
 	{ path: 'modal-login', component: LoginComponent, outlet: 'login' },
 	{ path: 'modal-register', component: RegisterComponent, outlet: 'register' },
 	{ path: 'inicio', component: InicioComponent },
-	{ path: 'garagem', component: GaragemComponent }
+	{ path: 'garagem', component: GaragemComponent },
+	{ path: 'cadastro-car', component: CadastroCarComponent },
+	{ path: 'visualizacao/:id', component: VisualizacaoComponent }
 ];

@@ -1,0 +1,71 @@
+<div class="dashboard-container">
+  <aside class="sidebar d-none d-lg-flex">
+    <a routerLink="/" class="brand-logo">CarPrism</a>
+    <nav class="nav flex-column w-100">
+      <a routerLink="/inicio" class="nav-link"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+      <a routerLink="/garagem" class="nav-link"><i class="bi bi-car-front-fill"></i><span>Garagem</span></a>
+      <a routerLink="/cadastro-car" class="nav-link"><i class="bi bi-plus-circle-fill"></i><span>Novo Carro</span></a>
+      <a routerLink="/inicio" class="nav-link"><i class="bi bi-calendar-event"></i><span>Test-Drives</span></a>
+      <a routerLink="/ajustes" class="nav-link active"><i class="bi bi-gear-fill"></i><span>Ajustes</span></a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="form-card">
+      <div class="section-header">
+        <h2>Ajustes da Conta</h2>
+        <p>Personalize sua experiência e atualize seus dados.</p>
+      </div>
+
+      <form>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" placeholder="Seu nome completo" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">E-mail</label>
+            <input type="email" class="form-control" placeholder="seuemail@exemplo.com" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Telefone</label>
+            <input type="tel" class="form-control" placeholder="(11) 99999-9999" />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Idioma</label>
+            <select class="form-select">
+              <option selected>Português (Brasil)</option>
+              <option>English</option>
+              <option>Español</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Notificações</label>
+            <div class="settings-options">
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" checked />
+                <span>Receber alertas de novos veículos</span>
+              </label>
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" checked />
+                <span>Receber lembretes de test-drive</span>
+              </label>
+              <label class="form-check">
+                <input class="form-check-input" type="checkbox" />
+                <span>Receber novidades e promoções</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4">
+            <button type="button" class="btn-save">Salvar Ajustes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
